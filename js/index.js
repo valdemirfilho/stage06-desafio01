@@ -12,6 +12,12 @@ function removeActives() {
   }
 }
 
+async function loadImg(img) {
+  const image = img ? img : 'home' 
+  const loadimg = document.querySelector('div.loadimg')
+  loadimg.style.background = `url(images/${image}.png) 0% 0% / cover no-repeat`
+}
+
 async function renderContent(img) {
     const image = img ? img : 'home' 
     const { pathname } = window.location
@@ -28,13 +34,17 @@ async function renderContent(img) {
 }
 
 for (routeLink of routeLinks) {
+  routeLink.addEventListener('mouseover', (event) => {
+    const img = event.target.dataset.image
+    loadImg(img)
+  })
+
   routeLink.addEventListener('click', (event) => {
     event.preventDefault()
     removeActives()
     event.target.classList.add('active')
     window.history.pushState({}, "", event.target.href)
     const img = event.target.dataset.image
-    console.log(img)
     renderContent(img)
   })
 }
