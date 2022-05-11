@@ -4,6 +4,143 @@
   padding: 0;
   box-sizing: border-box;
 }
+
+body {
+  background: rgba(2,28,37,1);
+  background: radial-gradient(circle, rgba(2,28,37,1) 0%, rgba(1,14,18,1) 100%);
+  font-family: 'Roboto', sans-serif;
+  /* background-image: url('../images/mountains-universe-1.png'); */
+  /* background-size: cover; */
+  padding: 46px;
+  color: white;
+}
+
+div.bg {
+  background-size: cover;
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  z-index: -1;
+  opacity: 0;
+}
+
+.fade {
+  animation: fadeout 1s ease-out forwards;
+}
+
+@keyframes fadeout {
+0% {
+  opacity: 0;
+} 
+100% {
+  opacity: 1;
+}
+}
+
+header {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 40px;
+}
+
+nav ul {
+  /* text-align: center; */
+  list-style: none;
+  display: grid;
+  place-items: center;
+  gap: 16px;
+}
+
+nav a {
+  font-size: 24px;
+  text-decoration: none;
+  color: #aaa;
+}
+
+nav a:hover {
+  color: white;
+  text-shadow: 0px 0px 2px currentColor;
+} 
+
+a.active {
+  pointer-events: none;
+  cursor: default;
+  color: white;
+  text-shadow: 0px 0px 2px currentColor;
+}
+
+main {
+  height: 100%;
+}
+
+.home-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+h2 {
+  color: #e1e1e1;
+  font-size: 32px;
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.content-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.button {
+  text-decoration: none;
+  text-transform: uppercase;
+  color: white;
+  padding: 12px 32px;
+  border: 2px solid white;
+  border-radius: 5px;
+  width: 200px;
+  height: 48px;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.button:hover {
+  color: hsla(194, 97%, 31%, 1);
+  background-color: #fff;
+}
+
+/* .universe-content, */
+/* .exploration-content { */
+/*   padding-top: 100px; */
+/*   padding-left: 20px; */
+/*   display: flex; */
+/*   flex-direction: column; */
+/*   justify-content: center; */
+/*   width: 640px; */
+/* } */
+
+/* .universe-content p,  */
+/* .exploration-content p { */
+/*   color: #fff; */
+/*   font-size: 18px; */
+/*   line-height: 28px; */
+/* } */
+
+/* .load-img { */
+/*   width: 0; */
+/*   height: 0; */
+/*   visibility: hidden; */
+/* } */
+
+@media (min-width: 600px) {
 html, body {
   height: 100%;
 }
@@ -50,6 +187,7 @@ div.bg {
 
 header {
   display: flex;
+  flex-direction: row;
   align-items: center;
   gap: 32px;
 }
@@ -143,3 +281,18 @@ h2 {
   height: 0;
   visibility: hidden;
 }
+}
+
+  /* header { */
+  /*   flex-direction: column; */
+  /* } */
+
+  /* nav ul { */
+  /*   flex-direction: column; */
+  /*   align-items: center; */
+  /*   gap: 16px; */
+  /* } */
+
+  /* #page { */
+  /*   width: 360px; */
+  /* } */
