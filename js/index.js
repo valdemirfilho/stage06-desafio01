@@ -15,7 +15,7 @@ function removeActives() {
 async function loadImg(img) {
   const image = img ? img : 'home' 
   const loadimg = document.querySelector('div.loadimg')
-  loadimg.style.background = `url(images/${image}.png) 0% 0% / cover no-repeat`
+  loadimg.style.background = `url(images/${image}.webp) 0% 0% / cover no-repeat`
 }
 
 async function renderContent(img) {
@@ -26,7 +26,7 @@ async function renderContent(img) {
     const html = await data.text()
     document.querySelector('#content').innerHTML = html
     const bg = document.querySelector('div.bg')
-    bg.style.background = `url(images/${image}.png) 0% 0% / cover no-repeat`
+    bg.style.background = `url(images/${image}.webp) 0% 0% / cover no-repeat`
   bg.classList.remove('fade')
   setTimeout(() => {
     bg.classList.add('fade')
@@ -49,6 +49,10 @@ for (routeLink of routeLinks) {
   })
 }
 
+window.addEventListener('DOMContentLoaded', function () {
+  document.querySelector('body').classList.add('fadein')
+  console.log('Okk!')
+});
 renderContent()
 
 
