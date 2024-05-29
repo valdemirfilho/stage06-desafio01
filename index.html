@@ -7,7 +7,7 @@
   <link href="css/style.css" rel="stylesheet">
   <title>SPA Universe</title>
   <link rel="shortcut icon" type="image/x-icon" href="favicon.svg">
-  <script src="js/index.js" defer></script>
+  <script src="js/index.js" defer type="module"></script>
 </head>
 
 <body>
@@ -20,13 +20,13 @@
       <nav>
         <ul>
           <li>
-            <a href="/" class="link active" data-image="home" onclick="renderContent(event)">Início</a>
+            <a href="/" class="link home active" data-page="home" onclick="route(event)">Início</a>
           </li>
           <li>
-            <a href="/universe" class="link" data-image="universe" onclick="renderContent(event)">O Universo</a>
+            <a href="/universe" class="link universe" data-page="universe" onclick="route(event)">O Universo</a>
           </li>
           <li>
-            <a href="/exploration" class="link" data-image="exploration" onclick="renderContent(event)">Exploração</a>
+            <a href="/exploration" class="link exploration" onclick="route(event)" data-page="exploration" onclick="">Exploração</a>
           </li>
         </ul>
       </nav>
@@ -35,8 +35,8 @@
     <main id="content">
     </main>
 
-    <div class="bg fade"></div>
-    <div class="loadimg"></div>
+    <div class="wrapper"></div>
+
   </div>
 </body>
 

@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
 * {
   margin: 0;
   padding: 0;
@@ -19,7 +20,7 @@ body {
   color: white;
 }
 
-div.bg {
+div.background, div.wrapper {
   background-size: cover;
   position: absolute;
   left: 0;
@@ -27,20 +28,7 @@ div.bg {
   height: 100%;
   width: 100%;
   z-index: -1;
-  opacity: 0;
-}
-
-.fade {
-  animation: fadeout 1s ease-out forwards;
-}
-
-@keyframes fadeout {
-0% {
-  opacity: 0;
-} 
-100% {
-  opacity: 1;
-}
+  animation: fadeIn 1s;
 }
 
 header {
@@ -121,6 +109,16 @@ h2 {
   background-color: #fff;
 }
 
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
 
 /* ===================== */
 /* === MEDIA QUERIES === */
@@ -135,8 +133,8 @@ body {
   background: rgba(2,28,37,1);
   background: radial-gradient(circle, rgba(2,28,37,1) 0%, rgba(1,14,18,1) 100%);
   font-family: 'Roboto', sans-serif;
-  /* background-image: url('../images/mountains-universe-1.png'); */
-  /* background-size: cover; */
+  /* background-image: url('../images/universe.webp');
+  background-size: cover; */
   padding: 72px;
 }
 
@@ -151,17 +149,6 @@ div.bg {
   opacity: 0;
 }
 
-.fade {
-  animation: fadeout 1s ease-out forwards;
-}
-
-@keyframes fadeout {
-0% {
-  opacity: 0;
-} 
-100% {
-  opacity: 1;
-}
 }
 
 #page {
@@ -196,7 +183,7 @@ nav a:hover {
 } 
 
 a.active {
-  pointer-events: none;
+  /* pointer-events: none; */
   cursor: default;
   color: white;
   text-shadow: 0px 0px 2px currentColor;
@@ -268,28 +255,3 @@ h2 {
   height: 0;
   visibility: hidden;
 }
-}
-
-  /* header { */
-  /*   flex-direction: column; */
-  /* } */
-
-  /* nav ul { */
-  /*   flex-direction: column; */
-  /*   align-items: center; */
-  /*   gap: 16px; */
-  /* } */
-
-  /* #page { */
-  /*   width: 360px; */
-  /* } */
-
-
-/* lidianediniz
-alexcamargo
-gleice souza
-<Taay>
-
-
-*/
-

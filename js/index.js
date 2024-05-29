@@ -1,81 +1,28 @@
-const routeLinks = document.querySelectorAll("nav a")
+import Router from "./router.js"
 
-const routes = {
-  '/': '../pages/home.html',
-  '/universe': '../pages/universe.html',
-  '/exploration': '../pages/exploration.html',
-  'home': '../pages/home.html',
-  'universe': '../pages/universe.html',
-  'exploration': '../pages/exploration.html'
-}
+const router = new Router()
 
-function removeActives() {
-  for (const routeLink of routeLinks) {
-    routeLink.classList.remove('active')
-  }
-}
+// routes = {
+//   "/": "/pages/home.html",
+//   "/exploration": "/pages/exploration.html",
+//   "/universe": "/pages/universe.html",
+//   404: "/pages/404.html"
+// }
 
-function setActive(link) {
-  link.classList.add('active')
-}
+router.add("/", "/pages/home.html")
+router.add("/exploration", "/pages/exploration.html")
+router.add("/universe", "/pages/universe.html")
+router.add(404, "/pages/404.html")
 
-async function loadImg(img) {
-  const image = img ? img : 'home'
-  const loadimg = document.querySelector('div.loadimg')
-  loadimg.style.background = `url(images/${image}.webp) 0% 0% / cover no-repeat`
-}
-
-async function renderContent(img) {
-  const image = img ? img : 'home'
-  // const { pathname } = window.location
-  // console.log(pathname)
-  const page = routes[image]
-  console.log(page)
-  const data = await fetch(page)
-  // console.log(data)
-  const html = await data.text()
-  // console.log(html)
-  document.querySelector('#content').innerHTML = html
-  const bg = document.querySelector('div.bg')
-  bg.style.background = `url(images/${image}.webp) 0% 0% / cover no-repeat`
-  bg.classList.remove('fade')
-  setTimeout(() => {
-    bg.classList.add('fade')
-  }, 100)
-}
-
-for (const routeLink of routeLinks) {
-  routeLink.addEventListener('mouseover', (event) => {
-    const img = event.target.dataset.image
-    loadImg(img)
-  })
-
-  routeLink.addEventListener('click', (event) => {
-    event.preventDefault()
-    removeActives()
-    // event.target.classList.add('active')
-    setActive(event.target)
-    const img = event.target.dataset.image
-    renderContent(img)
-    window.history.pushState({ id: img }, "", event.target.href)
-  })
-}
-
-window.addEventListener('DOMContentLoaded', function () {
-  document.querySelector('body').classList.add('fadein')
-  console.log('OK!')
+document.addEventListener("DOMContentLoaded", (event) => {
 });
 
+router.render()
+
+// window.onpopstate = (event) => router.render(event.state?.id)
 window.addEventListener('popstate', (event) => {
-  console.log(`location: ${document.location}, state: ${JSON.stringify(event.state)}`);
-  renderContent(event.state?.id)
-  removeActives()
+  // console.log(`location: ${document.location}, state: ${JSON.stringify(event.state)}`);
+  router.render()
+})
 
-  if (event.state) {
-    document.querySelector(`[data-image=${event.state.id}]`).classList.add('active')
-  } else {
-    document.querySelector(`[data-image="home"]`).classList.add('active')
-  }
-});
-
-renderContent('home')
+window.route = (event) => router.route(event)
