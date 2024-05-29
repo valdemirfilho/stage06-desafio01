@@ -22,8 +22,8 @@ class Router {
     const [, , fullname] = route.split("/")
     const [pagename,] = fullname.split(".")
 
-    if (route === this.routes[404]) return
     this.setActiveLink(pagename)
+    if (route === this.routes[404]) return
     this.setBackground(pagename)
   }
 
@@ -42,7 +42,7 @@ class Router {
       link.classList.remove("active")
     }
 
-    if (!page) return
+    if (page === "404") return
 
     const activeLink = document.querySelector(`.${page}`)
     activeLink?.classList.add("active")
