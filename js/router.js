@@ -42,6 +42,8 @@ class Router {
       link.classList.remove("active")
     }
 
+    if (!page) return
+
     const activeLink = document.querySelector(`.${page}`)
     activeLink?.classList.add("active")
   }
