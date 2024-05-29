@@ -6,7 +6,6 @@ class Router {
   }
 
   route(event) {
-    // console.log(event)
     event.preventDefault()
     window.history.pushState({ page: event.target.dataset.page }, "", event.target.href)
     this.render()
@@ -23,8 +22,9 @@ class Router {
     const [, , fullname] = route.split("/")
     const [pagename,] = fullname.split(".")
 
-    this.setBackground(pagename)
+    if (route === this.routes[404]) return
     this.setActiveLink(pagename)
+    this.setBackground(pagename)
   }
 
   setBackground(image) {
@@ -43,7 +43,7 @@ class Router {
     }
 
     const activeLink = document.querySelector(`.${page}`)
-    activeLink.classList.add("active")
+    activeLink?.classList.add("active")
   }
 }
 

@@ -119,6 +119,40 @@ h2 {
   }
 }
 
+.content-wrapper-404 {
+  display: flex;
+  font-size: 48px;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  text-transform: uppercase;
+  
+  & img {
+    animation: float 5s ease infinite;
+  }
+}
+
+@keyframes float {
+  0% {
+    transform: translatey(0px);
+  }
+
+  50% {
+    transform: translatey(-50px);
+  }
+
+  100% {
+    transform: translatey(0px);
+  }
+}
+
+.text-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+gap: 20px;
+}
 
 /* ===================== */
 /* === MEDIA QUERIES === */
