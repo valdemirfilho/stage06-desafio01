@@ -3,13 +3,20 @@ const routeLinks = document.querySelectorAll("nav a")
 const routes = {
   '/': '../pages/home.html',
   '/universe': '../pages/universe.html',
-  '/exploration': '../pages/exploration.html'
+  '/exploration': '../pages/exploration.html',
+  'home': '../pages/home.html',
+  'universe': '../pages/universe.html',
+  'exploration': '../pages/exploration.html'
 }
 
 function removeActives() {
   for (const routeLink of routeLinks) {
     routeLink.classList.remove('active')
   }
+}
+
+function setActive(link) {
+  link.classList.add('active')
 }
 
 async function loadImg(img) {
@@ -20,10 +27,14 @@ async function loadImg(img) {
 
 async function renderContent(img) {
   const image = img ? img : 'home'
-  const { pathname } = window.location
-  const page = routes[pathname]
+  // const { pathname } = window.location
+  // console.log(pathname)
+  const page = routes[image]
+  console.log(page)
   const data = await fetch(page)
+  // console.log(data)
   const html = await data.text()
+  // console.log(html)
   document.querySelector('#content').innerHTML = html
   const bg = document.querySelector('div.bg')
   bg.style.background = `url(images/${image}.webp) 0% 0% / cover no-repeat`
@@ -42,7 +53,8 @@ for (const routeLink of routeLinks) {
   routeLink.addEventListener('click', (event) => {
     event.preventDefault()
     removeActives()
-    event.target.classList.add('active')
+    // event.target.classList.add('active')
+    setActive(event.target)
     const img = event.target.dataset.image
     renderContent(img)
     window.history.pushState({ id: img }, "", event.target.href)
@@ -66,7 +78,4 @@ window.addEventListener('popstate', (event) => {
   }
 });
 
-renderContent()
-
-
-
+renderContent('home')

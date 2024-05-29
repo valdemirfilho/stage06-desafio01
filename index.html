@@ -19,9 +19,15 @@
 
       <nav>
         <ul>
-          <li><a class="active" href="/" data-image="home">Início</a></li>
-          <li><a href="/universe" data-image="universe">O Universo</a></li>
-          <li><a href="/exploration" data-image="exploration">Exploração</a></li>
+          <li>
+            <a href="/" class="link active" data-image="home" onclick="renderContent(event)">Início</a>
+          </li>
+          <li>
+            <a href="/universe" class="link" data-image="universe" onclick="renderContent(event)">O Universo</a>
+          </li>
+          <li>
+            <a href="/exploration" class="link" data-image="exploration" onclick="renderContent(event)">Exploração</a>
+          </li>
         </ul>
       </nav>
     </header>
