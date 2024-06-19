@@ -26,3 +26,16 @@ window.addEventListener('popstate', (event) => {
 })
 
 window.route = (event) => router.route(event)
+
+function preload_image(image_path) {
+  const img = new Image()
+  img.src = image_path
+}
+
+const images = [
+  "/images/home.webp",
+  "/images/exploration.webp",
+  "/images/universe.webp"
+]
+
+images.forEach((image) => preload_image(image))
