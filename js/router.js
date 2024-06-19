@@ -31,7 +31,7 @@ class Router {
     const divWrapper = document.querySelector(".wrapper")
     const divBackground = document.createElement("div")
     divBackground.classList.add("background")
-    divBackground.style.background = `url(images/${image}.webp) 0% 0% / cover no-repeat`
+    divBackground.style.background = `url(images/${image}.webp) center bottom / cover no-repeat`
     divWrapper.innerHTML = divBackground.outerHTML
   }
 
